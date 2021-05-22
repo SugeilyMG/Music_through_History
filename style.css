@@ -10,3 +10,17 @@ h2{
     font-size: x-large;
     font-weight: bold;
 }
+
+#search {
+    position: absolute;
+    
+}
+
+#searchbar {
+    top: 260px;
+    left: 375px;
+    width: 580px;
+    height: 30px;
+  }
+
+
