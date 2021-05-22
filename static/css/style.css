@@ -1,3 +1,4 @@
+<<<<<<< HEAD:static/css/style.css
 
 h1{
     color: steelblue;
@@ -24,3 +25,31 @@ h2{
   }
 
 
+=======
+
+h1{
+    color: steelblue;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+h2{
+    color: steelblue;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#search {
+    position: absolute;
+    
+}
+
+#searchbar {
+    top: 260px;
+    left: 375px;
+    width: 580px;
+    height: 30px;
+  }
+
+
+>>>>>>> f059fd1b57ea682597fcfd224e6774de0d85cb84:style.css
