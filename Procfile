@@ -1,1 +1,1 @@
-web: gunicorn mysite.wsgi
+web: gunicorn Music_through_History.wsgi
