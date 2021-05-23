@@ -5,7 +5,6 @@ import base64
 import datetime
 from urllib.parse  import urlencode
 from flask import request
-import os
 
 
 app = flask.Flask(__name__)
@@ -132,8 +131,3 @@ def get_data(year):
     return response
 
 app.run()
-
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
