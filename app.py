@@ -130,9 +130,7 @@ def get_data(year):
     response.headers.add("Access-Control-Allow-Methods", "*")
     return response
 
-app.run()
-
 if __name__ == '__main__':
-    # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
 
