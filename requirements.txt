@@ -60,5 +60,6 @@ six==1.15.0
 unicodecsv==0.14.1
 urllib3==1.26.4
 virtualenv==20.4.6
+Flask==0.10.1
 
 
