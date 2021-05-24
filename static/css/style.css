@@ -1,4 +1,5 @@
 
+
 .t1 {
     font-family:'Segoe UI';
     text-align: center;
@@ -6,7 +7,6 @@
     margin-top: 5vh;
     color: #a0a0a0;
     font-size: 6em;
-    bold:
   }
   
 .t2{
@@ -35,8 +35,26 @@
     outline: none;
   }
 
+.t4 {
+    font-family:'Segoe UI';
+    text-align: center;
+    line-height: 100px;
+    margin-top: 5vh;
+    color: rgb(255, 255, 255);
+    font-size: 32em;
+  }
+
+.t5{
+  font-family: 'Segoe UI';
+  text-align: center;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
+  color: #ffffff;
+  font-size: 1.5em;
+}
+
 #search {
-    position: absolute;
+  position: absolute;
     
 }
 
@@ -78,7 +96,4 @@ div {
 {
     height: 100px;
 }
-.back{
-background: url("spotifyCode.png") no-repeat center center; 
-text-align: center;
-}
+
