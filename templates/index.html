@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <title>Spotify Search</title>
 
+  
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +15,14 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="static/css/style.css">
+      <link rel="stylesheet" href="/static/css/style.css">
       <script src="https://d3js.org/d3.v5.min.js"></script>
 
 </head>
 
 <body>
-  <script>
+
+    <script>
     // Fade in on start
     $(document).ready(function() {
       $("body").hide().fadeIn(2000);
@@ -30,16 +33,16 @@
     <nav class="navbar navbar-expand-sm bg-secondary navbar-dark  fixed-top">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link disabled" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Visualizations</a>
+              <a class="nav-link disabled" href="#">Visualizations</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Stats</a>
+              <a class="nav-link disabled" href="#">Stats</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">About us</a>
+              <a class="nav-link" href="/about">About us</a>
             </li>
           </ul>
         </nav>
@@ -49,11 +52,17 @@
   </div>
 
   <!-- User´s Search -->
-  <div class="jumbotron" >
+   <!-- <div class="jumbotron" >
+  </div>-->
+  <div class="position-relative">
+    <div
+      class="svg-wrapper bg-image shadow-1-strong rounded-lg"
+      style="background-image: url('https://images.pexels.com/photos/1010519/pexels-photo-1010519.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=700'); height: 400px;">
+    </div>
   </div>
     <div class="container push-spaces" >
       <div class="t1">The stats of music</div>
-      <div class="t2">Search the music of Spotify by year and see what happens..! </div>
+      <div class="t2">Insert a year and see what happens..! </div>
       <form>
         <div class="input-group mb-3 ">
           <div class="input-group-prepend">
@@ -62,17 +71,14 @@
           <div class="input-group-append">
             <button id="submit"  class="t3" type="submit">Search</button>  
            </div>
+           <ul id="ul"></ul>
      
         
       </form>
     </div>
+  </div>
 
     </div>
-          </form>
-            <div id="plot"></div>
-            <script src="static/js/plots.js"></script>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -80,8 +86,11 @@
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
   </script>
+  <script src="static/js/plots.js"></script>
 </body>
 
 </html>
+
+
 
 
