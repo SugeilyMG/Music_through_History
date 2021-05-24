@@ -117,6 +117,10 @@ class SpotifyAPI(object):
 def home():
     return render_template ('index.html')
 
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template ('about.html')
+
 
 @app.route('/data/<year>', methods=['GET'])
 def get_data(year):
