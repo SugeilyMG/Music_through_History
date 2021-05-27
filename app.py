@@ -87,7 +87,7 @@ class SpotifyAPI(object):
         }
         return headers
     
-    def get_resource(self, lookup_id, resource_type = 'albums', version='v1'):
+    def get_resource(self, lookup_id, resource_type = 'audio-features', version='v1'):
         endpoint = f'https://api.spotify.com/{version}/{resource_type}/{lookup_id}'
         headers = self.get_resource_header()
         r = requests.get(endpoint, headers = headers)
@@ -100,17 +100,25 @@ class SpotifyAPI(object):
     
     def get_artist(self, _id):
         return self.get_resource(_id, resource_type = 'artists')
+
     
-    def search(self, query, search_type = 'artist' ):
+    def search(self, query, search_type = 'albums' ):
         headers = self.get_resource_header()
         endpoint = 'https://api.spotify.com/v1/search'
-        data = urlencode({'q' : query, 'type' : search_type.lower()})
+        data = urlencode({'q' : query, 'type' : search_type.lower(),'limit': 10})
         lookup_url = f'{endpoint}?{data}'
         r = requests.get(lookup_url, headers = headers)
         if r.status_code not in range(200, 299):
             return {}
         
         return r.json()
+
+    # def get_tracks_ids(self, _id):
+    #     headers = self.get_resource_header()
+    #     endpoint = 'https://api.spotify.com/v1/audio-features/{_id}'
+        
+
+
 
 
 @app.route('/', methods=['GET'])
@@ -123,11 +131,12 @@ def about():
 
 
 @app.route('/data/<year>', methods=['GET'])
+
 def get_data(year):
     #year = request.args.get("year")
     spotify = SpotifyAPI(client_id, client_secret)
     #payload = spotify.search('year:2000', search_type = 'track' )
-    payload = spotify.search(f'year:{year}', search_type = 'track' )
+    payload = spotify.search(f'year:{year}', search_type = 'album,track' )
     response = flask.jsonify(payload)
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add("Access-Control-Allow-Headers", "*")

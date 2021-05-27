@@ -18,57 +18,61 @@ function handleSubmit() {
     // Fetch the JSON data and console log it
     d3.json(url).then(function(data) {
     console.log(data);
+    var artists = [];
+    var popularity = [];
+    var songs = [];
+    var items = data.tracks.items;
+    var artistjson = [];
+    var tracksIds = [];
+
+    console.log(items);
+
+    items.forEach((element) => {
+      songs.push(element.name)
+      artists.push(element.artists[0].name)
+      tracksIds.push(element.id)
+      popularity.push(element.popularity)
     });
+      console.log(artists);
+      console.log(songs);
+      console.log(popularity);
+      console.log(artistjson);
+      console.log(tracksIds);
 
-  }
+      var trace1 = {
+        x: songs,
+        y: popularity,     
+        marker: {color: 'rgb(49,130,189)'},
+        type: 'bar',
+      };
 
+      var data = [trace1];
+
+      var layout = {
+          title: "Most Popular Songs",
+          xaxis: { title: "Songs" },
+          yaxis: { title: "Popularity" },
+        };
+
+      Plotly.newPlot("plot1", data, layout);
+    
+    var trace2 = {
+      x: artists,
+      y: popularity,     
+      marker: {color: 'rgb(204,204,204)'},
+      type: 'bar',
+    };
+    var data = [trace2];
+
+    var layout = {
+        title: "Most Popular Artists",
+        xaxis: { title: "Songs" },
+        yaxis: { title: "Popularity" },
+      };
+
+    Plotly.newPlot("plot2", data, layout);
+
+    });
+  };
 
 d3.select("#submit").on("click", handleSubmit);
-  
-
-    // d3.json(url).then(function(data) {
-    //   // Grab values from the response json object to build the plots
-    //   var name = data.dataset.name;
-    //   var stock = data.dataset.dataset_code;
-    //   var startDate = data.dataset.start_date;
-    //   var endDate = data.dataset.end_date;
-    //   // Print the names of the columns
-    //   console.log(data.dataset.column_names);
-    //   // Print the data for each day
-    //   console.log(data.dataset.data);
-    //   var dates = data.dataset.data.map(row => row[0]);
-    //   // console.log(dates);
-    //   var closingPrices = data.dataset.data.map(row => row[4]);
-    //   // console.log(closingPrices);
-  
-    //   var trace1 = {
-    //     type: "scatter",
-    //     mode: "lines",
-    //     name: name,
-    //     x: dates,
-    //     y: closingPrices,
-    //     line: {
-    //       color: "#17BECF"
-    //     }
-    //   };
-  
-    //   var data = [trace1];
-  
-    //   var layout = {
-    //     title: `${stock} closing prices`,
-    //     xaxis: {
-    //       range: [startDate, endDate],
-    //       type: "date"
-    //     },
-    //     yaxis: {
-    //       autorange: true,
-    //       type: "linear"
-    //     }
-    //   };
-  
-    //   Plotly.newPlot("plot", data, layout);
-  
-    //});
-  
-  
-  // Add event listener for submit button
